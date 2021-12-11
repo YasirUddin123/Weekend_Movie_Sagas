@@ -3,8 +3,8 @@
 In this application, I am working on a movie management application! We're already able to see movies that exist in our DB. We'll need to be able to see detailed view for each individual movie, including genres associated with that movie. We also need to able to add a new movie's information.
 
 ## High Level Development Plan
-    * Database Set up: Create a database named saga_movies_weekend & Run the queries from database.sql on the saga_movies_weekend database
-    * Install Dependencies (npm install, npm run server, and npm run client)
+    * Database Set up: Create a database named saga_movies_weekend & Run the queries from database.sql on the saga_movies_weekend database ✅
+    * Install Dependencies (npm install, npm run server, and npm run client) ✅
     * There are 3 primary components (Home page, Details Page, and Add Movie Page)
         * Home Page
             * Add functionality so when a movie poster is clicked, a user should be brought to the /details view for that movie.
