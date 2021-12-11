@@ -6,12 +6,15 @@ function App() {
   return (
     <div className="App">
       <h1>The Movies Saga!</h1>
-      <Router>        
+      <Router>
         <Route path="/" exact>
           <MovieList />
         </Route>
-        
-        {/* Details page */}
+
+        {/* Details page: Add a Route for this page. I will also need to make a new component for Details */}
+        {/* <Route path="/details" exact>
+          <MovieDetails />
+        </Route> */}
 
         {/* Add Movie page */}
       </Router>
