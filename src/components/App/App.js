@@ -2,6 +2,9 @@ import {HashRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import MovieList from '../MovieList/MovieList'
 
+// Make sure to import MovieDetails file
+import MovieDetails from '../MovieDetails/MovieDetails'
+
 function App() {
   return (
     <div className="App">
