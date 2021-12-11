@@ -11,10 +11,13 @@ function App() {
           <MovieList />
         </Route>
 
-        {/* Details page: Add a Route for this page. I will also need to make a new component for Details */}
-        {/* <Route path="/details" exact>
+        {/* Details page. Add a route for this page.
+        When a movie poster is clicked,
+        a user should be brought to the /details view
+        FOR THAT MOVIE. */}
+        <Route path="/details" exact>
           <MovieDetails />
-        </Route> */}
+        </Route>
 
         {/* Add Movie page */}
       </Router>
