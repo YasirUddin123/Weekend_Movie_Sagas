@@ -30,6 +30,7 @@ function AddMovie() {
             type: 'ADD_MOVIE',
             payload: newMovie
         })
+        console.log(newMovie);
         history.push('/');
     }
 
@@ -58,8 +59,6 @@ function AddMovie() {
         <button onClick={handleCancelButton}>Cancel</button><br />
         <button onClick={handleSaveButton}>Save</button>
         </div>
-
-
 
     )
 }
