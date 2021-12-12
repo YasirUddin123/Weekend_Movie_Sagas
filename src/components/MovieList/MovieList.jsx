@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // We need to import useHistory in order to route to MovieDetails page
 import {useHistory} from 'react-router-dom';
 import './MovieList.css'
+import MovieDetails from '../MovieDetails/MovieDetails'
 
 function MovieList() {
 
@@ -31,6 +32,7 @@ function MovieList() {
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
                             {/* insert an onClick function to make each image route to MovieDetails page */}
+                            {/* We need to find a way to grab the movie details after this click */}
                             <img src={movie.poster} alt={movie.title} onClick={handleRouteToMovieDetailsPage}/>
                         </div>
                     );
