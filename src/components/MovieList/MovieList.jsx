@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // We need to import useHistory in order to route to MovieDetails page
 import {useHistory} from 'react-router-dom';
 import './MovieList.css'
-import MovieDetails from '../MovieDetails/MovieDetails'
+
 
 function MovieList() {
 

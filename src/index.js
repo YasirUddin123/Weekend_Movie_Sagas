@@ -15,6 +15,7 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_SINGLE_MOVIE', fetchSingleMovie);
+    yield takeEvery('FETCH_GENRES', fetchGenres);
 }
 
 function* fetchAllMovies() {
@@ -46,6 +47,18 @@ function* fetchSingleMovie(action) {
     }
 }
 
+// create a new saga function that will get our genres from the database
+// and then update our reducer 
+function* fetchGenres() {
+    try {
+        const genres = yield axios.get('/api/genre');
+        console.log('get all:', genres.data);
+        yield put({ type: 'SET_GENRES', payload: genres.data });
+
+    } catch {
+        console.log('get all error');
+    }
+}
 
 
 // Create sagaMiddleware
