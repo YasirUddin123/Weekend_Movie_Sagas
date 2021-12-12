@@ -4,6 +4,7 @@ import MovieList from '../MovieList/MovieList'
 
 // Make sure to import MovieDetails file
 import MovieDetails from '../MovieDetails/MovieDetails'
+import AddMovie from '../AddMovie/AddMovie';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
 
         {/* Add Movie page */}
+        <Route path="/addyourmovie" exact>
+          <AddMovie />
+        </Route>
       </Router>
     </div>
   );

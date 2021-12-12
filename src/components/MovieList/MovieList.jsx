@@ -29,9 +29,15 @@ function MovieList() {
         history.push('/details')
     }
 
+     // create a function that will handle the onClick to route to Add a Movie page
+     const handleAddMovie = () => {
+        history.push('/addyourmovie');
+    }
+
     return (
         <main>
             <h1>MovieList</h1>
+            <button onClick={handleAddMovie}>Add a movie!</button>
             <section className="movies">
                 {movies.map(movie => {
                     return (
