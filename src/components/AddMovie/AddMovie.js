@@ -26,6 +26,10 @@ function AddMovie() {
 
     // create a function that will handle the onClick to route to Add a Movie page
     const handleSaveButton = () => {
+        dispatch({
+            type: 'ADD_MOVIE',
+            payload: newMovie
+        })
         history.push('/');
     }
 
@@ -42,7 +46,7 @@ function AddMovie() {
 
         <input placeholder="Movie Title" onChange={(event) => {setNewMovie({...newMovie, title: event.target.value})}}/><br />
         <input placeholder="Movie Poster URL" onChange={(event) => {setNewMovie({...newMovie, poster: event.target.value})}}/><br />
-        <textarea placeholder="Movie Description" onChange={(event) => {setNewMovie({...newMovie, title: event.target.value})}}/><br />
+        <textarea placeholder="Movie Description" onChange={(event) => {setNewMovie({...newMovie, description: event.target.value})}}/><br />
         <select onChange={(event) => {setNewMovie({...newMovie, genre_id: event.target.value})}}>
                 <option disabled value='0'>Select Genre</option>
                 {genres.map((genre) =>  {

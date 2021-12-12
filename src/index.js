@@ -16,6 +16,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_SINGLE_MOVIE', fetchSingleMovie);
     yield takeEvery('FETCH_GENRES', fetchGenres);
+    yield takeEvery('ADD_MOVIE', addMovie);
 }
 
 function* fetchAllMovies() {
@@ -48,12 +49,29 @@ function* fetchSingleMovie(action) {
 }
 
 // create a new saga function that will get our genres from the database
-// and then update our reducer 
+// and then update our reducer
 function* fetchGenres() {
     try {
         const genres = yield axios.get('/api/genre');
         console.log('get all:', genres.data);
         yield put({ type: 'SET_GENRES', payload: genres.data });
+
+    } catch {
+        console.log('get all error');
+    }
+}
+
+// create a new saga function that will allow us to add new movie to database via POST
+function* addMovie(action)  {
+    console.log('Test POST:', action.payload)
+    try {
+        const newMovie = yield axios({
+            method: 'POST',
+            url: '/api/movie',
+            data: action.payload
+        })
+
+        yield put({ type: 'FETCH_MOVIES' });
 
     } catch {
         console.log('get all error');
