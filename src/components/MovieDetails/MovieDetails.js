@@ -4,38 +4,59 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 
 
-
+// worked with Duncan and Mike on the details page
 // Create function to return movieDetails
-function MovieDetails(){
+function MovieDetails({movie}){
 
     // define useDispatch
     const dispatch = useDispatch();
 
     // access movies reducer
-    const movies = useSelector(store => store.movies);
+    const singleMovie = useSelector(store => store.singleMovie);
+    console.log(singleMovie);
+
+    // const singleMovieTitle = singleMovie.map
+    const singleMovieTitle = [];
+    const singleMovieDescription = [];
+    // const singleMovieDescription = singleMovie.map
+    singleMovie.map(movie => {
+        return (
+            singleMovieTitle.push(movie.title)
+        )})
+
+    singleMovie.map(movie => {
+        return (
+            singleMovieDescription.push(movie.description)
+        )})
 
     // use useEffect
-    useEffect(() => {
-        dispatch({ type: 'FETCH_MOVIES' });
-    }, []);
+    // useEffect(() => {
+    //     dispatch({ type: 'FETCH_SINGLE_MOVIE' });
+    // }, []);
+
+    //
 
     // Each movie contains an object of description, id, poster, and title
     // We know on the MovieList component, movie.id, movie.title, movie.poster properties are accessed
-    // in order to render on the DOM
+    // and renders on the DOM
 
-    // How do we render movie.description on this page?
+    // How can we render movie.description on this page?
 
     // Return code block to render on page
     return (
         // test to make sure route works
         <div>
             <h1>This works!</h1>
-            <p>{movies.map(movie => {
+            <p>{singleMovie.map(singleMovie => {
                 return (
-                    <p>{movie.description}</p>
+                    <>
+                        <p>{singleMovie.name}</p>
+                    </>
                 )
             })}
             </p>
+            <p>{singleMovieTitle[0]}</p>
+            <p>{singleMovieDescription[0]}</p>
         </div>
     )
 }

@@ -19,7 +19,13 @@ function MovieList() {
     }, []);
 
     // create a function that will handle the onClick on the image to route to MovieDetails page
-    const handleRouteToMovieDetailsPage = () => {
+    const handleRouteToMovieDetailsPage = (id) => {
+        console.log(id);
+        // event.preventDefault
+        dispatch({
+            type: 'FETCH_SINGLE_MOVIE',
+            payload:id
+        });
         history.push('/details')
     }
 
@@ -33,7 +39,12 @@ function MovieList() {
                             <h3>{movie.title}</h3>
                             {/* insert an onClick function to make each image route to MovieDetails page */}
                             {/* We need to find a way to grab the movie details after this click */}
-                            <img src={movie.poster} alt={movie.title} onClick={handleRouteToMovieDetailsPage}/>
+                            <img
+                                src={movie.poster}
+                                alt={movie.title}
+                                value={movie.id}
+                                onClick={() => handleRouteToMovieDetailsPage(movie.id)}
+                            />
                         </div>
                     );
                 })}
