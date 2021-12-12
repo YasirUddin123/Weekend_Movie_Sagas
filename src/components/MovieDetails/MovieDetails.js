@@ -2,6 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 // Let's also import useEffect
 import React, { useEffect } from 'react';
+import {useHistory} from 'react-router-dom';
 
 
 // worked with Duncan and Mike on the details page
@@ -10,6 +11,9 @@ function MovieDetails({movie}){
 
     // define useDispatch
     const dispatch = useDispatch();
+
+    // define use History so we can click to MovieDetails page
+    const history = useHistory();
 
     // access movies reducer
     const singleMovie = useSelector(store => store.singleMovie);
@@ -29,6 +33,10 @@ function MovieDetails({movie}){
             singleMovieDescription.push(movie.description)
         )})
 
+        const handleHomeButton = () => {
+            history.push('/')
+        }
+
     // use useEffect
     // useEffect(() => {
     //     dispatch({ type: 'FETCH_SINGLE_MOVIE' });
@@ -47,6 +55,7 @@ function MovieDetails({movie}){
         // test to make sure route works
         <div>
             <h1>This works!</h1>
+            <button onClick={handleHomeButton}>Back to List</button>
             <p>{singleMovie.map(singleMovie => {
                 return (
                     <>
