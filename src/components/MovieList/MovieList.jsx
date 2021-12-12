@@ -30,7 +30,7 @@ function MovieList() {
     }
 
      // create a function that will handle the onClick to route to Add a Movie page
-     const handleAddMovie = () => {
+    const handleAddMovie = () => {
         history.push('/addyourmovie');
     }
 
